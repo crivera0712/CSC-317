@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WellnessWorks</title>
+ 
+  <link rel="stylesheet" href="../style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+  
+    <section id="header">
+      <a href="index.html"><img src="../svg/logo.svg"  class="logo" alt="logo"></a>
+
+      <div>
+          <ul id="navbar"> 
+            <li><a  href="index.html">Home</a></li>
+            <li><a class="use" href="shop.html">Shop</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li id="bag"><a href="cart.html"><img src="../svg/cart.svg" alt="shopping cart" width="20px"></a></li>
+            <a href="#" id="close"><i class="fa fa-times"></i></a>
+          </ul>
+      </div>
+      <div id="mobile">
+        
+        <a href="cart.html"><img src="../svg/cart.svg" alt="shopping cart" width="20px"></a>
+        <i id="hamburger" class="fa fa-outdent"></i>
+      </div>
+    </section>
+
+    <section id="pro-details" class="section-1" >
+      <div class="single-image">
+        <img src="../img/nike-tank.webp" width="100%" id="main" alt="">
+
+        <div class="small-img-group">
+          <div class="small-img-col">
+            <img src="../shop-img/ready-mens-dri-fit-fitness-tank-5xSHKM.jpg" alt="" width="100%" class="small-img">
+          </div>
+          <div class="small-img-col">
+            <img src="../shop-img/ready-mens-dri-fit-fitness-tank-5xSHKM-1.webp" alt="" width="100%" class="small-img">
+          </div>
+          <div class="small-img-col">
+            <img src="../img/nike-tank.webp" alt="" width="100%" class="small-img">
+          </div>
+          <div class="small-img-col">
+            <img src="../shop-img/ready-mens-dri-fit-fitness-tank-5xSHKM.webp" alt="" width="100%" class="small-img">
+          </div>
+        </div>
+      </div>
+      <div class="details">
+        <h6>Clothing/Workout Tank</h6>
+        <h4>Nike Dri-Fit Tank-Top</h4>
+        <h2>$42.00</h2>
+        <select>
+          <option>Select Size</option>
+          <option>S</option>
+          <option>M</option>
+          <option>L</option>
+          <option>XL</option>
+          <option>XXL</option>
+        </select>
+        <input type="number" value="1">
+        <button class="single-pro-button">Add To Cart</button>
+        <h4>Prodtuct Detasils</h4>
+        <span>Get the energy that you need to crush your workouts with Ghost prew-workout. High caffine and no crash. Crush those PRs!</span>
+      </div>
+    </section>
+   
+      
+
+ 
+
+  <section id="newsletter" class="section-1">
+    <div class="newstext">
+      <h4>Join WellnessWorks Newsletters</h2>
+      <p>Never Miss Out On The Latest <span>Sales</span></p>
+    </div>  
+      <div class="email-form">
+        <input type="text" placeholder="Enter Email">
+        <button>Join</button>
+      </div>
+    
+  </section>
+  <footer class="section-1">
+    <div class="col">
+      <img class="logo" src="../svg/logo.svg" alt="logo">
+      <h4>Contact</h4>
+      <p><strong>Address:</strong>8895905039830</p>
+      <p><strong>Phone:</strong>75754848</p>
+      <p><strong>Hours:</strong>4959</p>
+      <div class="follow">
+        <h4>Follow WellnessWorks</h4>
+        <div class="con">
+          <img src="../svg/instagram.svg" alt="instagram logo">
+          <img src="../svg/twitter.svg" alt="twitter logo">
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <h4>About</h4>
+      <a href="about-us.html">About Us</a>
+      <a href="#">Brands</a>
+      <a href="#">Terms & Conditions</a>
+      <a href="#">Privacy</a>
+    </div>
+    <div class="col">
+      <h4>My Account</h4>
+      <a href="$">Sign In</a>
+      <a href="#">View Cart</a>
+      <a href="#">Help</a>
+      <a href="#">Unsubscribe</a>
+    </div>
+    <div class="col">
+      <h4>Payments</h4>
+      <img class="payment" src="../images/Essential-Minimal-Payment-Icons.jpg copy.png" alt="">
+    </div>
+    <div class="copyright">
+      <p>© 2024 Group 9 CSC-317. All Rights Reserved. </p>
+    </div>
+  </footer>
+  <script>
+    let main = document.getElementById('main');
+    let smallImage = document.getElementsByClassName('small-img');
+
+    smallImage[0].onclick = function(){
+      main.src = smallImage[0].src;
+    }
+    smallImage[1].onclick = function(){
+      main.src = smallImage[1].src;
+    }
+    smallImage[2].onclick = function(){
+      main.src = smallImage[2].src;
+    }
+    smallImage[3].onclick = function(){
+      main.src = smallImage[3].src;
+    }
+   
+    
+  </script>
+
+  <script src="../index.js"></script>
+</body>
+</html>
