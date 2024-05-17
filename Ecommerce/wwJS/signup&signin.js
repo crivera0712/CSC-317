@@ -1,4 +1,4 @@
-/*signup*/
+/*link to sign up page*/
 const loginSignupLink = document.querySelectorAll('.form-box .bottom-link a');
 const formPopup = document.querySelector(".form-popup");
 loginSignupLink.forEach(link => {
@@ -7,3 +7,4 @@ loginSignupLink.forEach(link => {
     formPopup.classList[link.id === "signup-link" ? 'add' : 'remove']("show-signup");
   })
 })
+

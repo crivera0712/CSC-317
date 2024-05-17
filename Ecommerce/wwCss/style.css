@@ -723,7 +723,7 @@ width: 20px ;
     color: white;
     background-color: black;
   }
-                                            /*Login Page */
+/*Login Page */
 .form-popup{
     position: fixed;
     top: 50%;
@@ -828,9 +828,6 @@ form button:hover{
 }
 .form-box .bottom-link{
   text-align: center;
-}
-.form-popup .signup, .form-popup.show-signup .login{
-  display: none;
 }
 .form-popup.show-signup .signup{
   display: flex;
