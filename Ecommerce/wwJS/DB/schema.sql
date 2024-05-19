@@ -1,10 +1,10 @@
 CREATE TABLE users (
 id INTEGER PRIMARY KEY AUTO_INCREMENT,
+first_name VARCHAR(30) NOT NULL,
+last_name VARCHAR(30) NOT NULL,
 email VARCHAR(100) NOT NULL,
 `password` VARCHAR (255) NOT NULL,
 phone_number VARCHAR (15),
+UNIQUE (email),
 created TIMESTAMP NOT NULL DEFAULT NOW()
 );
-INSERT INTO users (email, password)
-VALUES
-('jit@jit.com', 'jit');
