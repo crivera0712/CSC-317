@@ -12,6 +12,28 @@ const pool = mysql.createPool({
 }).promise();
 export default pool;
 
+
+async function testConnection() {
+    try {
+        const connection = await mysql.createConnection({
+            host: process.env.MYSQL_HOST,
+            user: process.env.MYSQL_USER,
+            password: process.env.MYSQL_PASSWORD,
+            database: process.env.MYSQL_DB,
+            port: process.env.MYSQL_PORT,
+        });
+        console.log('Connected to the database!');
+        await connection.end();
+    } catch (error) {
+        console.error('Error connecting to the database:', error);
+    }
+}
+
+testConnection();
+
+
+
+
 //returns array of users
 export async function getUsers() {
     const [rows] = await pool.query("SELECT * FROM users")

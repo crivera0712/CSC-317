@@ -3,6 +3,8 @@ import cors from 'cors'
 import path from 'path';
 import { fileURLToPath } from 'url';
 
+const PORT = process.env.PORT || 8080;
+
 const app = express();
 
 const __filename = fileURLToPath(import.meta.url);
@@ -93,7 +95,7 @@ app.use((err, req, res, next) => {
 })
 
 app.listen(8080, () => {
-    console.log('Server is running on port 8080')
+    console.log('Server is running on `${PORT}')
 })
 
 

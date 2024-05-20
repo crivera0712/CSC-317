@@ -231,6 +231,7 @@ p {
   @media (max-width:799px){
     .section-1 {
       padding: 40px 40px;
+    }
   }
     #navbar {
       display: flex;
@@ -292,4 +293,5 @@ p {
   @media (max-width: 477px) {
     .section-1{
       padding: 20px;
-    
+    }
+  }

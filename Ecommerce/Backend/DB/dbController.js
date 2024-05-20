@@ -40,7 +40,8 @@ async function getLoginForm(){
     });
 }
 
-async function postData (url = 'http://localhost:8080/newUser', first_name, last_name, email, password) 
+
+async function postData (url = 'https://csc-317.onrender.com/newUser', first_name, last_name, email, password) 
 {
     console.log('sending post request: ', JSON.stringify({first_name, last_name, email, password}))
     const response = await fetch (url, {
@@ -93,11 +94,11 @@ function submitSuForm() {
         const last_name = form.last_name.value;
         const email = form.email.value;
         const password = form.password.value;
-        postData('http://localhost:8080/newUser',first_name, last_name, email, password)
+        postData('https://csc-317.onrender.com/newUser',first_name, last_name, email, password)
             .then(user => {
                 console.log('User successfully signed up:', user.id);
                 // Redirect or display success message
-                window.location.href = 'http://localhost:8080/users/'+user.id;
+                window.location.href = 'https://csc-317.onrender.com/users/'+user.id;
             })
             .catch(error => {
                 console.error('Error signing up:', error);
