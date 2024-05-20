@@ -33,7 +33,7 @@ async function getLoginForm(){
     .then(user => {
         console.log('User successfully logged in:', user.id);
         // Redirect or display success message
-        window.location.href = 'http://localhost:8080/users/'+user.id;
+        window.location.href = 'https://csc-317.onrender.com/users/'+user.id;
     })
     .catch(error => {
         console.error('Error logging in:', error);
