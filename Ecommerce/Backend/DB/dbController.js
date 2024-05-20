@@ -27,7 +27,9 @@ async function getLoginForm(){
     const email = form.loginEmail.value;
     const password = form.loginPass.value;
     console.log('calling postLogin')
-    getLogin('/login', email, password)
+    const loginUrl = 'https://csc-317.onrender.com/login'; // Debugging
+    console.log('URL:', loginUrl); 
+    getLogin('loginUrl', email, password)
     .then(user => {
         console.log('User successfully logged in:', user.id);
         // Redirect or display success message
