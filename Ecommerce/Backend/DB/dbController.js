@@ -1,7 +1,7 @@
 
 //CLIENT SIDE CODE
 
-async function getLogin(url = 'http://localhost:8080/login', email, password){
+async function getLogin(url, email, password){
     console.log('sign in form called')
     console.log('Email:', email);
     console.log('Password:', password);
@@ -27,11 +27,13 @@ async function getLoginForm(){
     const email = form.loginEmail.value;
     const password = form.loginPass.value;
     console.log('calling postLogin')
-    getLogin('http://localhost:8080/login', email, password)
+    const loginUrl = 'https://csc-317.onrender.com/login'; // Debugging
+    console.log('URL:', loginUrl); 
+    getLogin(loginUrl, email, password)
     .then(user => {
         console.log('User successfully logged in:', user.id);
         // Redirect or display success message
-        window.location.href = 'http://localhost:8080/users/'+user.id;
+        window.location.href = 'https://csc-317.onrender.com/users/'+user.id;
     })
     .catch(error => {
         console.error('Error logging in:', error);
