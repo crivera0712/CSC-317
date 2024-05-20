@@ -3,12 +3,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>USER</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+    <section id="header">
+        <a href="../../../Frontend/ww.html/index.html"><img src="../../../Frontend/svg/logo.svg"  class="logo" alt="logo"></a>
+  
+        <div>
+            <ul id="navbar"> 
+              <li><a href="../../../Frontend/ww.html/index.html">Home</a></li>
+              <li><a href="../../../Frontend/ww.html/shop.html">Shop</a></li>
+              <li><a href="../../../Frontend/ww.html/blog.html">Blog</a></li>
+              <li><a href="../../../Frontend/ww.html/contact.html">Contact</a></li>
+              <li id="bag"><a href="#"><img src="../../../Frontend/svg/cart.svg" alt="shopping cart" width="20px"></a></li>
+              <a href="#" id="close"><i class="fa fa-times"></i></a>
+            </ul>
+        </div>
+        <div id="mobile">
+          <a href="#"><img src="../../../Frontend/svg/cart.svg" alt="shopping cart" width="20px"></a>
+          <i id="hamburger" class="fa fa-outdent"></i>
+        </div>
+      </section>
     <div id="userContainer">
-        <p>PRINT</p>
-        <h1><%= user.email %></h1>
-        <h2>WELCOME <%= user.first_name %></h2>
+        <div class="profile-header">
+            <div class="user-info">
+              <h1>Welcome,</h1>
+                <h6 class="user-name"><%= user.first_name %></h6>
+                <button class="edit-profile-btn">Edit Profile</button>
+            </div>
+        </div>
+        <div class="profile-content">
+            <div class="account-details">
+                <h2>Account Details</h2>
+                <p><strong>Name:</strong> <%= user.first_name %></p>
+                <p><strong>Email:</strong> <%= user.email %></p>
+                <p><strong>Joined:</strong> May 21, 2024</p>
+            </div>
+            <div class="password-update">
+                <h2>Update Password</h2>
+                <form action="#" method="POST" class="password-form">
+                    
+                    <label for="new-password">New Password</label>
+                    <input type="password" id="new-password" name="new-password" required>
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                    <button type="submit" class="update-password-btn">Update</button>
+                </form>
+            </div>
+            <div class="order-history">
+                <h2>Order History</h2>
+                <ul>
+                    <li>No New Orders - <span>N/A</span></li>
+                    <li>No New Orders - <span>N/A</span></li>
+                    <li>No New Orders - <span>N/A</span></li>
+                </ul>
+            </div>
+        </div>
     </div>
+    <footer class="section-1">
+        <div class="col">
+          <img class="logo" src="../../../Frontend/svg/logo.svg" alt="logo">
+          <h4>Contact</h4>
+          <p><strong>Address:</strong>8895905039830</p>
+          <p><strong>Phone:</strong>75754848</p>
+          <p><strong>Hours:</strong>4959</p>
+          <div class="follow">
+            <h4>Follow WellnessWorks</h4>
+            <div class="con">
+              <img src="../../../Frontend/svg/instagram.svg" alt="instagram logo">
+              <img src="../../../Frontend/svg/twitter.svg" alt="twitter logo">
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <h4>About</h4>
+          <a href="../../../Frontend/ww.html/about-us.html">About Us</a>
+          <a href="#">Brands</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Privacy</a>
+        </div>
+        <div class="col">
+          <h4>My Account</h4>
+          <a href="../../../Frontend/ww.html/sign-in.html">Sign In</a>
+          <a href="#">View Cart</a>
+          <a href="#">Help</a>
+          <a href="#">Unsubscribe</a>
+        </div>
+        <div class="col">
+          <h4>Payments</h4>
+          <img class="payment" src="../../../Frontend/images/Essential-Minimal-Payment-Icons.jpg copy.png" alt="">
+        </div>
+        <div class="copyright">
+          <p>© 2024 Group 9 CSC-317. All Rights Reserved. </p>
+        </div>
+      </footer>
+      <script src="../../../Frontend/wwJS/index.js"></script>
 </body>
 </html>
