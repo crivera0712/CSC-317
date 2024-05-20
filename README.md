@@ -12,4 +12,4 @@ Some key features of our site is our resoponive home page that is very welcoming
 Link to website:
 https://csc-317.onrender.com/
 
-In order to have the mySQL database run properly and connect to the website we are using port fowarding to host the database.
+In order to have the mySQL database run properly and connect to the web app we are using port fowarding to host the database.
