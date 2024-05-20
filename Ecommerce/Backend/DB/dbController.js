@@ -1,7 +1,7 @@
 
 //CLIENT SIDE CODE
 
-async function getLogin(url = 'http://localhost:8080/login', email, password){
+async function getLogin(url = 'https://csc-317.onrender.com/login', email, password){
     console.log('sign in form called')
     console.log('Email:', email);
     console.log('Password:', password);
