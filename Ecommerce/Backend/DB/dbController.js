@@ -16,6 +16,7 @@ async function getLogin(url = 'http://localhost:8080/login', email, password){
         throw new Error('Network response was not ok ' + response.statusText);
     }
     const user = await response.json();
+    console.log("user is returned")
     return user; 
 }
 
