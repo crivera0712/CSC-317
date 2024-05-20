@@ -12,6 +12,7 @@ const pool = mysql.createPool({
 }).promise();
 export default pool;
 
+
 async function testConnection() {
     try {
         const connection = await mysql.createConnection({
@@ -29,6 +30,7 @@ async function testConnection() {
 }
 
 testConnection();
+
 
 
 
