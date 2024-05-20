@@ -8,3 +8,8 @@ In order to keep track of users we used a MySql database that was hosted using e
 
 Technologies Used: HTML5 for structuring the site. CSS for syling the site and making it responsive. JavaScript for interactive features. SQL, express.js, EJS, node.JS, and databases for the backend side for managing user data.
 Some key features of our site is our resoponive home page that is very welcoming, a detailed product page, and user autheication.
+
+Link to website:
+https://csc-317.onrender.com/
+
+In order to have the mySQL database run properly and connect to the website we are using port fowarding to host the database.
