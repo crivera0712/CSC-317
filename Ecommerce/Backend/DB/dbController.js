@@ -1,7 +1,7 @@
 
 //CLIENT SIDE CODE
 
-async function getLogin(url = 'https://csc-317.onrender.com/login', email, password){
+async function getLogin(url, email, password){
     console.log('sign in form called')
     console.log('Email:', email);
     console.log('Password:', password);
@@ -27,7 +27,7 @@ async function getLoginForm(){
     const email = form.loginEmail.value;
     const password = form.loginPass.value;
     console.log('calling postLogin')
-    getLogin('https://csc-317.onrender.com/login', email, password)
+    getLogin('/login', email, password)
     .then(user => {
         console.log('User successfully logged in:', user.id);
         // Redirect or display success message
