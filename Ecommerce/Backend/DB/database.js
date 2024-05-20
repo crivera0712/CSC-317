@@ -16,18 +16,30 @@ export async function getUsers() {
     return rows
 }
 
-export async function userLogin(email, password)
-{
-    const [rows] = await pool.query(`
-    SELECT * 
-    FROM users
-    WHERE email = ?
-    and password = ?
-    `, [email, password])
-    const user = rows[0];
-    const id = user.id;
-    return getUser(id);
+export async function userLogin(email, password) {
+    try {
+        const [rows] = await pool.query(`
+            SELECT * 
+            FROM users
+            WHERE email = ?
+            AND password = ?
+        `, [email, password]);
+        
+        if (rows.length === 0) {
+            console.log("No user found with given email and password");
+            return null;
+        }
+        
+        const user = rows[0];
+        const id = user.id;
+        return await getUser(id);
+    } catch (error) {
+        console.error("Error during userLogin query:", error);
+        throw error;
+    }
 }
+
+
 
 export async function getUser(id){
     const [rows] = await pool.query(`

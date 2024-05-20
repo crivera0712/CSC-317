@@ -2,22 +2,19 @@ import express from 'express'
 import cors from 'cors'
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { dirname } from 'path';
 
 const app = express();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const ecommercePath = path.join(__dirname, '../..');
+const ecommercePath = path.join(__dirname, '../../Frontend');
 //const ecommercePath = path.join(__dirname, '../../');
 
 
 app.use(express.static(ecommercePath));
 
 app.get('/', (req, res) => {
-    const indexPath = path.join(ecommercePath, 'Frontend', 'ww.html', 'index.html');
-    console.log('Serving index.html from:', indexPath); // Log the index.html path
-    res.sendFile(indexPath);
+    res.sendFile(path.join(ecommercePath,'ww.html', 'index.html'));
 });
 
 import {getUsers, getUser, createUser, userLogin} from './database.js'
@@ -26,6 +23,18 @@ app.use(cors())
 app.set("view engine", "ejs")
 // EXPRESS BACKEND CODE
 
+app.get('/:page', (req, res) => {
+    const page = req.params.page;
+    const page2 = `${page}`;
+    console.log(page2)
+    const filePath = path.join(ecommercePath, 'ww.html', page2);
+    res.sendFile(filePath, (err) => {
+        if (err) {
+            res.status(404).send('FUCK');
+        }
+    });
+});
+
 
 app.get("/users", async (req, res) => {
     const users = await getUsers()
@@ -33,29 +42,42 @@ app.get("/users", async (req, res) => {
 })
 
 app.post("/login", async (req, res) => {
-    console.log("In the login feature");
-    //const email = req.query.loginEmail;
-    //const password = req.query.loginPass;
-    const {email, password} = req.body;
-    console.log(email);
-    console.log(password);
-    const user = await userLogin(email, password);
-    console.log("Passed user login function");
-    res.status(201).send(user)
+    try {
+        console.log("In the login feature");
+        const { email, password } = req.body;
+        console.log("Email:", email);
+        console.log("Password:", password);
+        
+        const user = await userLogin(email, password);
+        console.log("Passed user login function");
+        
+        if (user) {
+            res.status(200).send(user);
+        } else {
+            res.status(401).send({ error: "Invalid email or password" });
+        }
+    } catch (error) {
+        console.error("Error during login:", error);
+        res.status(500).send({ error: "Internal Server Error" });
+    }
 });
 
 app.get("/users/:id", async (req, res) => {
-    const id = req.params.id    
-    const user = await getUser(id)
-    //res.send(user)
-    if (!user){
-        console.log("user does not exist")
+    try {
+        const id = req.params.id;
+        const user = await getUser(id);
+        
+        if (!user) {
+            console.log("User does not exist");
+            return res.status(404).send({ error: "User not found" });
+        }
+        
+        res.render("user.ejs", { user });
+    } catch (error) {
+        console.error("Error fetching user:", error);
+        res.status(500).send({ error: "Internal Server Error" });
     }
-    res.render("user.ejs",{
-        user,
-    });
-
-})
+});
 
 app.post("/newUser", async (req, res)=> {
     const {first_name, last_name, email, password} = req.body
@@ -68,36 +90,6 @@ app.use((err, req, res, next) => {
     console.error(err.stack)
     res.status(500).send('Something broke!')
 })
-
-
-app.post('/auth', function(request, response) {
-    // Capture the input fields
-    let email = request.body.loginEmail;
-    let password = request.body.loginPass;
-    // Ensure the input fields exist and are not empty
-    if (email && password) {
-        // Execute SQL query that'll select the account from the database based on the specified username and password
-        connection.query('SELECT * FROM accounts WHERE email = ? AND password = ?', [email, password], function(error, results, fields) {
-            // If there is an issue with the query, output the error
-            if (error) throw error;
-            // If the account exists
-            if (results.length > 0) {
-                // Authenticate the user
-                request.session.loggedin = true;
-                request.session.email = email;
-                // Redirect to home page
-                response.redirect('/home');
-            } else {
-                response.send('Incorrect Username and/or Password!');
-            }
-            response.end();
-        });
-    } else {
-        response.send('Please enter Username and Password!');
-        response.end();
-    }
-});
-
 
 app.listen(8080, () => {
     console.log('Server is running on port 8080')
