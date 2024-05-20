@@ -8,10 +8,11 @@ const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ecommercePath = path.join(__dirname, '../../Frontend');
-//const ecommercePath = path.join(__dirname, '../../');
+const dataBase = path.join(__dirname, '../../');
 
 
 app.use(express.static(ecommercePath));
+app.use(express.static(dataBase));
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(ecommercePath,'ww.html', 'index.html'));
