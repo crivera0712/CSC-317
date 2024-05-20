@@ -38,7 +38,7 @@
       </div>
       <div class="form-content">
         <h2>Login</h2>
-        <form id="loginForm">
+        <form id="loginForm" onsubmit="event.preventDefault(); getLoginForm()">
           <div class="input-field">
             <input type="text" id="loginEmailInput" name="loginEmail" required>
             <label>Email</label>
@@ -48,7 +48,7 @@
             <label>Password</label>
           </div>
           <a href="#" class="forgot-pass">Forgot Password?</a>
-          <button type="submit" onclick="getLoginForm()">Login</button>
+          <button type="submit">Login</button>
         </form>
         <div class="bottom-link">
           <p>Dont't have an account?</p>
