@@ -1,6 +1,37 @@
 
 //CLIENT SIDE CODE
 
+async function getNewPasswordForm(){
+    console.log('Change passwordForm called');
+    const form = document.getElementById('changePassword');
+    const userId = window.location.pathname.split('/').pop();
+    console.log("the users id is: ", userId);
+    const newPassword = form.new-password.value;
+    console.log("new password is *insde the form call*: ", newPassword);
+    const url = 'https://csc-317.onrender.com/Paction';
+    changePassword(url, userId. newPassword)
+    .then(user =>{
+        console.log("password successfuly changed")
+        window.location.href = 'https://csc-317.onrender.com/users/'+user.id;
+    })
+    .catch(error => {
+        console.error('Error changing password:', error);
+    });
+}
+
+async function changePassword(url, id, newPassword){
+    console.log("new password is: ", newPassword);
+    console.log("User id is: ", id)
+
+    const response = await fetch (url, {
+        method: "POST",
+        body: JSON.stringify({id, password: password}),
+        headers:{
+            'Content-type': 'application/json'
+        }
+    });
+}
+
 async function getLogin(url, email, password){
     console.log('sign in form called')
     console.log('Email:', email);
@@ -32,7 +63,7 @@ async function getLoginForm(){
     getLogin(loginUrl, email, password)
     .then(user => {
         console.log('User successfully logged in:', user.id);
-        // Redirect or display success message
+        // Redirect
         window.location.href = 'https://csc-317.onrender.com/users/'+user.id;
     })
     .catch(error => {
@@ -97,7 +128,7 @@ function submitSuForm() {
         postData('https://csc-317.onrender.com/newUser',first_name, last_name, email, password)
             .then(user => {
                 console.log('User successfully signed up:', user.id);
-                // Redirect or display success message
+                // Redirect
                 window.location.href = 'https://csc-317.onrender.com/users/'+user.id;
             })
             .catch(error => {

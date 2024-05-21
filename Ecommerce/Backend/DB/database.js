@@ -40,6 +40,19 @@ export async function getUsers() {
     return rows
 }
 
+export async function changePassword(id, newPassword){
+    try {
+        const [result] = await pool.query(`
+        SELECT * FROM users 
+        SET password = ?
+        WHERE id = ?
+        `, [id, newPassword])
+        console.log('password changed')
+    } catch {
+        console.error("Error changing password")
+    }
+}
+
 export async function userLogin(email, password) {
     try {
         const [rows] = await pool.query(`

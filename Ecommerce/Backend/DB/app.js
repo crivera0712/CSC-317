@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(ecommercePath,'ww.html', 'index.html'));
 });
 
-import {getUsers, getUser, createUser, userLogin} from './database.js'
+import {getUsers, getUser, createUser, userLogin, changePassword} from './database.js'
 app.use(express.json())
 app.use(cors())
 app.set("view engine", "ejs")
@@ -88,6 +88,16 @@ app.post("/newUser", async (req, res)=> {
     res.status(201).send(user)
 })
 
+app.post("/Paction", async (req, res)=> {
+    const {id, password} = req.body;
+    const updatedPassword = await changePassword(id, password);
+    if(updatedPassword){
+        res.status(200).send(user);
+    } else {
+        res.status(401).send({ error: "cannot update password" });
+    }
+    
+})
 
 app.use((err, req, res, next) => {
     console.error(err.stack)
